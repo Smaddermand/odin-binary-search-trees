@@ -332,23 +332,71 @@ export default class Tree {
          
     }
 
-    // depth(node) {
-    //     return this.depthHelper(this.root, node);
+    // isBalanced() {
+    //     // traverse the tree using e.g. this.inOrder() - to get array of nodes
+    //     let array = this.Inorder();
+
+    //     // for each node in the array, get the height
+
+    // }
+
+    // isBalanced(){
+    //     return this.isBalancedHelper(this.root);
+    // }
+
+    // isBalancedHelper(node) {
+
+    //     if(node === null) {
+    //         return;
+    //     }
+
+    //     const leftTreeHeight = this.isBalancedHelper(node.left);
+    //     const rightTreeHeight = this.isBalancedHelper(node.right);
+
+    //     if (leftTreeHeight > rightTreeHeight + 1) {
+    //         return true;
+    //     }
+
+    //     if (leftTreeHeight + 1 < rightTreeHeight) {
+    //         return true;
+    //     }
+        
+    //     if (leftTreeHeight > rightTreeHeight) {
+    //         return leftTreeHeight + 1
+    //     } 
+    //         return rightTreeHeight + 1
         
     // }
 
-    // depthHelper(node, nodeToFind) {
-    //     if(node === null) {
-    //         return -1;
-    //     }
+    isBalanced() {
+        const result = this.isBalancedHelper(this.root);
+        return result.isBalanced;
+    }
 
-    //     if (nodeToFind.value < node.value ) {
-    //         return (this.depthHelper(node.left, nodeToFind)) + 1;
-    //     }
+    isBalancedHelper(node) {
+        // Base case: An empty tree is balanced and has height -1
+        if (node === null) {
+            return { height: -1, isBalanced: true };
+        }
 
-    //     if (nodeToFind.value > node.value ) {
-    //         return (this.depthHelper(node.right, nodeToFind)) + 1;
-    //     }
+        // Recursively find the heights of left and right subtrees
+        const leftResult = this.isBalancedHelper(node.left);
+        const rightResult = this.isBalancedHelper(node.right);
 
-    // }
+        // Check if the left or right subtree is unbalanced
+        if (!leftResult.isBalanced || !rightResult.isBalanced) {
+            return { height: 0, isBalanced: false };
+        }
+
+        // Check the height differences
+        if (Math.abs(leftResult.height - rightResult.height) > 1) {
+            return { height: 0, isBalanced: false };
+        }
+
+        // Calculate current node's height and return balance status
+        return {
+            height: Math.max(leftResult.height, rightResult.height) + 1,
+            isBalanced: true
+        };
+    }
 }

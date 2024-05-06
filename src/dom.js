@@ -86,5 +86,11 @@ console.log(`Depth of 723: ${  newTree.depth(newTree.find(723))}`);
 console.log(`Depth of 55: ${  newTree.depth(newTree.find(55))}`);
 console.log(`Depth of 15: ${  newTree.depth(newTree.find(15))}`);
 
+console.log(newTree.isBalanced());
+
+newTree.delete(1);
+newTree.delete(2);
+prettyPrint(newTree.root);
+console.log(newTree.isBalanced());
 
  
