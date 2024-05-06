@@ -135,4 +135,50 @@ export default class Tree {
             return this.findNode(node.right, value);
         
     }
+
+    // Write a levelOrder(callback) function that accepts an optional callback function as its parameter.
+
+    levelOrder(callback) {
+        let array = [];
+        const queue = [this.root];
+        array = this.levelOrderRoutine(callback, array, queue);
+        return array;
+    };
+
+    levelOrderRoutine(callback, array, queue) {
+        if(queue.length === 0) {
+            return array;
+        }
+
+        const currentNode = queue.shift();
+
+        if (callback) {
+            callback(currentNode.value);
+        }
+
+        array.push(currentNode.value);
+        
+        
+        // add the child nodes to the queue
+        if(currentNode.left !== null) {
+            queue.push(currentNode.left)
+        };
+
+        if(currentNode.right !== null) {
+            queue.push(currentNode.right)
+        };
+
+        this.levelOrderRoutine(callback, array, queue)
+
+        return array;
+
+        
+
+    }
+
+
+
+    print(value) {
+        console.log(value);
+    };
 }

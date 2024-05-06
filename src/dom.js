@@ -39,21 +39,9 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 
 //   newTree.delete(4);
 
-//   prettyPrint(newTree.root);
+console.log(newTree.levelOrder());
 
-//   newTree.delete(18);
-
-//   prettyPrint(newTree.root);
-
-//   newTree.delete(24);
-
-//   prettyPrint(newTree.root);
+newTree.levelOrder(newTree.print.bind(newTree));
 
 
-//   newTree.delete(8);
-
-//   prettyPrint(newTree.root);
-
-
-  
  
