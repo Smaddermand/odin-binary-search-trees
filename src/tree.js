@@ -116,14 +116,14 @@ export default class Tree {
     }
     
     findNode(node, value) {
-        console.log(`Visiting node with value: ${node ? node.value : 'null'}`);  // Debug output
+
         // Check if the node is null (base case)
         if (node === null) {
             return null;
         }
         // Check if the current node's value matches the search value
         if (value === node.value) {
-            console.log(`Found node with value: ${node.value}`);  // Debug output
+
             return node;
         }
         // If the search value is less than the current node's value, search in the left subtree
@@ -287,6 +287,21 @@ export default class Tree {
         } else {
             array.push(node.value); // Otherwise, push the value into the array
         }
+    }
+
+    height(node){
+        if(node === null) {
+            return -1;
+        }
+
+        const leftTreeHeight = this.height(node.left);
+        const rightTreeHeight = this.height(node.right);
+        
+        if (leftTreeHeight > rightTreeHeight) {
+            return leftTreeHeight + 1
+        } 
+            return rightTreeHeight + 1
+        
     }
 
 

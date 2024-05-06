@@ -70,5 +70,13 @@ console.log(newTree.postOrder());
 console.log("print using print() callback");
 newTree.postOrder(newTree.print.bind(newTree));
 
+console.log("this is the height");
+
+console.log(`height of 319: ${  newTree.height(newTree.find(319))}`);
+console.log(`height of 724: ${  newTree.height(newTree.find(724))}`);
+console.log(`height of 55: ${  newTree.height(newTree.find(55))}`);
+console.log(`height of 15: ${  newTree.height(newTree.find(15))}`);
+
+
 
  
