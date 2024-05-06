@@ -28,3 +28,20 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   newTree.insert(29);
 
   prettyPrint(newTree.root);
+
+  newTree.delete(4);
+
+  prettyPrint(newTree.root);
+
+  newTree.delete(18);
+
+  prettyPrint(newTree.root);
+
+  newTree.delete(24);
+
+  prettyPrint(newTree.root);
+
+
+  newTree.delete(8);
+
+  prettyPrint(newTree.root);

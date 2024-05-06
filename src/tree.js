@@ -73,22 +73,34 @@ export default class Tree {
         // if value to be deleted is smaller, then it lies in the left subtree
         if (value < node.value) {
             node.left = this.deleteNode(node.left, value)
+
+        // if value to be deleted is larger, then it lies in the right subtree
         } else  if (value > node.value) {
             node.right = this.deleteNode(node.right, value)
+        
+            // node with only one child or node child            
         } else {
-            // node with only one child or node child
             if (node.left === null)
                 return node.right;
             if (node.right === null)
                 return node.left;
 
-                    // implement this function next --> Delete node with two children
-                        // // Node with two children: Get the inorder successor (smallest in the right subtree)
-                        // root.key = this.minValue(root.right);
+            // node with two children: Get the inorder successor (smallest in the right subtree)    
+            node.value = this.minValue(node.right);
 
-                        // // Delete the inorder successor
-                        // root.right = this.deleteNode(root.right, root.key);
+            // delete the inorder successor
+            node.right = this.deleteNode(node.right, node.value);
         }
+        return node;
+    }
+
+    minValue(node){
+        let minValue = node.value;
+        while (node.left !== null) {
+            minValue = node.left.value;
+            node = node.left
+        }
+        return minValue;
     }
     
     
