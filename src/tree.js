@@ -138,7 +138,7 @@ export default class Tree {
 
     // Write a levelOrder(callback) function that accepts an optional callback function as its parameter.
 
-    levelOrder(callback) {
+    levelOrderRecursive(callback) {
         let array = [];
         const queue = [this.root];
         array = this.levelOrderRoutine(callback, array, queue);
@@ -172,13 +172,39 @@ export default class Tree {
 
         return array;
 
-        
-
     }
-
-
 
     print(value) {
         console.log(value);
     };
+
+
+    levelOrderIterative(callback) {
+        if(this.root === null) {
+            return
+        };        
+        const array = [];
+        const queue = [this.root];
+
+        while(queue.length !== 0) {
+            const currentNode = queue.shift();
+            
+            if(callback) {
+                callback(currentNode.value);
+            }
+
+            array.push(currentNode.value);       
+
+            if(currentNode.left !== null) {
+                queue.push(currentNode.left)
+            }
+
+            if (currentNode.right !== null) {
+                queue.push(currentNode.right)
+            }
+        }
+
+        return array;
+
+    }
 }

@@ -39,9 +39,16 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 
 //   newTree.delete(4);
 
-console.log(newTree.levelOrder());
+console.log(newTree.levelOrderRecursive());
 
-newTree.levelOrder(newTree.print.bind(newTree));
+newTree.levelOrderRecursive(newTree.print.bind(newTree));
+
+console.log("Let's go iterative");
+
+console.log(newTree.levelOrderIterative());
+
+console.log("Bind??");
+newTree.levelOrderIterative(newTree.print.bind(newTree));
 
 
  
