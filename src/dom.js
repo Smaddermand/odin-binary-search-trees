@@ -50,5 +50,25 @@ console.log(newTree.levelOrderIterative());
 console.log("Bind??");
 newTree.levelOrderIterative(newTree.print.bind(newTree));
 
+console.log("Print in order array");
+console.log(newTree.inOrder());
+
+console.log("print using print() callback");
+newTree.inOrder(newTree.print.bind(newTree));
+
+
+console.log("Print preorder array");
+console.log(newTree.preOrder());
+
+console.log("print using print() callback");
+newTree.preOrder(newTree.print.bind(newTree));
+
+
+console.log("Print post order array");
+console.log(newTree.postOrder());
+
+console.log("print using print() callback");
+newTree.postOrder(newTree.print.bind(newTree));
+
 
  

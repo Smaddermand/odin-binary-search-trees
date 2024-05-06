@@ -207,4 +207,87 @@ export default class Tree {
         return array;
 
     }
+
+    inOrder(callback) {
+        const array = [];
+        this.inOrderHelper(this.root, callback, array);
+        // Return the array only if no callback is provided
+        if (!callback) {
+            return array;
+        }
+    }
+
+    inOrderHelper(node, callback, array) {
+        if (node === null) {
+            return;
+        }
+        // Traverse left subtree
+        this.inOrderHelper(node.left, callback, array);
+        // Process the current node
+        if (callback) {
+            callback(node.value); // Call the callback if provided
+        } else {
+            array.push(node.value); // Otherwise, push the value into the array
+        }
+        // Traverse right subtree
+        this.inOrderHelper(node.right, callback, array);
+    }
+
+    preOrder(callback) {
+        const array = [];
+        this.preOrderHelper(this.root, callback, array);
+        // Return the array only if no callback is provided
+        if (!callback) {
+            return array;
+        }
+    }
+
+    preOrderHelper(node, callback, array) {
+        if (node === null) {
+            return;
+        }
+        // Process the current node
+        if (callback) {
+            callback(node.value); // Call the callback if provided
+        } else {
+            array.push(node.value); // Otherwise, push the value into the array
+        }
+        
+        // Traverse left subtree
+        this.preOrderHelper(node.left, callback, array);
+
+        // Traverse right subtree
+        this.preOrderHelper(node.right, callback, array);
+    }
+
+
+    postOrder(callback) {
+        const array = [];
+        this.postOrderHelper(this.root, callback, array);
+        // Return the array only if no callback is provided
+        if (!callback) {
+            return array;
+        }
+    }
+
+    postOrderHelper(node, callback, array) {
+        if (node === null) {
+            return;
+        }
+        
+        // Traverse left subtree
+        this.postOrderHelper(node.left, callback, array);
+
+        // Traverse right subtree
+        this.postOrderHelper(node.right, callback, array);
+
+        // Process the current node
+        if (callback) {
+            callback(node.value); // Call the callback if provided
+        } else {
+            array.push(node.value); // Otherwise, push the value into the array
+        }
+    }
+
+
 }
