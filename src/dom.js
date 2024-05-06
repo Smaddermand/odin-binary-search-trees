@@ -4,24 +4,19 @@
 
 import Tree from "./tree";
 
-const array = [1, 3, 4, 6, 7, 8, 12, 15, 18, 24, 55];
+const array = [2, 319, 2, 6, 724, 65, 1, 6, 1, 42, 6, 7, 8, 12, 15, 18, 24, 55];
 
 const newTree = new Tree(array);
-
-console.log(newTree.root);
 
 
 console.log("where are you");
 console.log(newTree.find(1));
-console.log(newTree.find(12));
-console.log(newTree.find(19));
+
 console.log(newTree.find(8));
-console.log(newTree.find(6));
-console.log(newTree.find(24));
-console.log(newTree.find(8));
-console.log(newTree.find(52));
-console.log(newTree.find(18));
+
 console.log(newTree.find(4));
+
+console.log(newTree.find(15));
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
@@ -38,26 +33,26 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 
   prettyPrint(newTree.root);
 
-  newTree.insert(29);
+//   newTree.insert(29);
 
-  prettyPrint(newTree.root);
+//   prettyPrint(newTree.root);
 
-  newTree.delete(4);
+//   newTree.delete(4);
 
-  prettyPrint(newTree.root);
+//   prettyPrint(newTree.root);
 
-  newTree.delete(18);
+//   newTree.delete(18);
 
-  prettyPrint(newTree.root);
+//   prettyPrint(newTree.root);
 
-  newTree.delete(24);
+//   newTree.delete(24);
 
-  prettyPrint(newTree.root);
+//   prettyPrint(newTree.root);
 
 
-  newTree.delete(8);
+//   newTree.delete(8);
 
-  prettyPrint(newTree.root);
+//   prettyPrint(newTree.root);
 
 
   

@@ -5,10 +5,13 @@ import Node from "./node";
 
 export default class Tree {
     constructor(array = null){
-        this.array = array.sort((a, b) => a - b); // sort and initialize the array
+        // sort and initialize the array
+        this.array = array ? array.sort((a, b) => a - b).filter((value, index, self) => self.indexOf(value) === index) : [];
         this.sortedUniqueArray = this.array.filter((value, index, self) => self.indexOf(value) === index);
+
+
         this.start = 0; // set the start index for building the tree
-        this.end = array.length - 1;
+        this.end = this.array.length - 1;
 
         // immediately build the tree and set root node
         this.root = this.buildTree();
@@ -113,12 +116,14 @@ export default class Tree {
     }
     
     findNode(node, value) {
+        console.log(`Visiting node with value: ${node ? node.value : 'null'}`);  // Debug output
         // Check if the node is null (base case)
         if (node === null) {
             return null;
         }
         // Check if the current node's value matches the search value
         if (value === node.value) {
+            console.log(`Found node with value: ${node.value}`);  // Debug output
             return node;
         }
         // If the search value is less than the current node's value, search in the left subtree
