@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 // tree.js (binary search tree)
 
 import Node from "./node";
@@ -94,6 +95,7 @@ export default class Tree {
         return node;
     }
 
+    // eslint-disable-next-line class-methods-use-this
     minValue(node){
         let minValue = node.value;
         while (node.left !== null) {
@@ -103,5 +105,29 @@ export default class Tree {
         return minValue;
     }
     
+    // Write a find(value) function that returns the node with the given value.
+
+    find(value) {
+        const node = this.findNode(this.root, value);
+        return node;
+    }
     
+    findNode(node, value) {
+        // Check if the node is null (base case)
+        if (node === null) {
+            return null;
+        }
+        // Check if the current node's value matches the search value
+        if (value === node.value) {
+            return node;
+        }
+        // If the search value is less than the current node's value, search in the left subtree
+        if (value < node.value) {
+            return this.findNode(node.left, value);
+        }
+        // If the search value is greater than the current node's value, search in the right subtree
+        
+            return this.findNode(node.right, value);
+        
+    }
 }

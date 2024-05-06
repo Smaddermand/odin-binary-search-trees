@@ -10,6 +10,19 @@ const newTree = new Tree(array);
 
 console.log(newTree.root);
 
+
+console.log("where are you");
+console.log(newTree.find(1));
+console.log(newTree.find(12));
+console.log(newTree.find(19));
+console.log(newTree.find(8));
+console.log(newTree.find(6));
+console.log(newTree.find(24));
+console.log(newTree.find(8));
+console.log(newTree.find(52));
+console.log(newTree.find(18));
+console.log(newTree.find(4));
+
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
@@ -45,3 +58,7 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   newTree.delete(8);
 
   prettyPrint(newTree.root);
+
+
+  
+ 
