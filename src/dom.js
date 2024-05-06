@@ -78,5 +78,13 @@ console.log(`height of 55: ${  newTree.height(newTree.find(55))}`);
 console.log(`height of 15: ${  newTree.height(newTree.find(15))}`);
 
 
+console.log("this is the depth");
+
+console.log(`Depth of 319: ${  newTree.depth(newTree.find(319))}`);
+console.log(`Depth of 724: ${  newTree.depth(newTree.find(724))}`);
+console.log(`Depth of 723: ${  newTree.depth(newTree.find(723))}`);
+console.log(`Depth of 55: ${  newTree.depth(newTree.find(55))}`);
+console.log(`Depth of 15: ${  newTree.depth(newTree.find(15))}`);
+
 
  

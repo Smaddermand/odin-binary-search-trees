@@ -304,5 +304,51 @@ export default class Tree {
         
     }
 
+    // Write a depth(node) function that returns the given node’s depth. Depth is defined as the number of edges in the path from a given node to the tree’s root node.
 
+    depth(node) {
+        if (node === null) {
+            return -1 ;
+        }
+
+        let currentNode = this.root;
+        let nodeDepth = 0;
+
+        while(currentNode !== null) {
+            if (currentNode.value === node.value) {
+                return nodeDepth;
+            }
+            if (currentNode.value < node.value) {
+                currentNode = currentNode.right;
+                nodeDepth++;
+            } else if (currentNode.value > node.value) {
+                currentNode = currentNode.left;
+                nodeDepth++;
+            }
+        }
+        // value not found, return
+        // eslint-disable-next-line no-useless-return
+        return -1;
+         
+    }
+
+    // depth(node) {
+    //     return this.depthHelper(this.root, node);
+        
+    // }
+
+    // depthHelper(node, nodeToFind) {
+    //     if(node === null) {
+    //         return -1;
+    //     }
+
+    //     if (nodeToFind.value < node.value ) {
+    //         return (this.depthHelper(node.left, nodeToFind)) + 1;
+    //     }
+
+    //     if (nodeToFind.value > node.value ) {
+    //         return (this.depthHelper(node.right, nodeToFind)) + 1;
+    //     }
+
+    // }
 }
