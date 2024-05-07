@@ -399,4 +399,9 @@ export default class Tree {
             isBalanced: true
         };
     }
+
+    rebalance() {
+        const array = this.inOrder();
+        this.root = this.buildTree(array, 0, array.length - 1);
+    }
 }

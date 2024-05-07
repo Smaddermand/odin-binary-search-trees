@@ -2,6 +2,11 @@
 
 // this file contains the js logic for dom manipulation
 
+import './driver';
+
+
+/* This was used to test the development
+
 import Tree from "./tree";
 
 const array = [2, 319, 2, 6, 724, 65, 1, 6, 1, 42, 6, 7, 8, 12, 15, 18, 24, 55];
@@ -93,4 +98,9 @@ newTree.delete(2);
 prettyPrint(newTree.root);
 console.log(newTree.isBalanced());
 
- 
+
+console.log("Do the rebalance");
+newTree.rebalance();
+prettyPrint(newTree.root);
+
+ */
